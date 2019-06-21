@@ -27,4 +27,12 @@ public class ViewBasket extends TestBase {
 		viewBasket.newAccomBooking();
 	}
 	
+	
+	@Then("^user adds the extra to the basket$")
+	public void user_adds_the_extra_to_the_basket() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		viewBasket = new ViewFullBasketPage(); 
+		viewBasket.newExtraBooking();
+	}
+
 }

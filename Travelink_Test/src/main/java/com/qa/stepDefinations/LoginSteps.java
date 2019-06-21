@@ -7,7 +7,6 @@ import com.qa.util.TestBase;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class LoginSteps extends TestBase {
@@ -28,12 +27,19 @@ public class LoginSteps extends TestBase {
 	}
 	
 
+
+	@After
+	public void tearDown() throws Throwable {
+		Thread.sleep(2000);
+		driver.close();
+	}
+
 	
-	@Then("^user exists the browser$")
+	/*@Then("^user exists the browser$")
 	public void user_exists_the_browser() throws Throwable {
 		
 		driver.close();
-	}
+	}*/
 	
 	
 	

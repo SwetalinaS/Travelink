@@ -26,4 +26,4 @@ Feature: Create Extra Booking
     Then user creates a extra search
     Then user adds the extra to the basket
     Then user confirms the booking
-    Then user exists the browser
+    

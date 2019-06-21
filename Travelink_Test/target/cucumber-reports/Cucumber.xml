@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="44.971122">
-<testcase classname="Create Accommodation" name="Create Accommodation Booking" time="44.971122">
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="4" time="207.306445">
+<testcase classname="Create Accommodation" name="Create Accommodation Booking" time="62.271459">
 <system-out><![CDATA[When user enters the homePage...............................................passed
 Then user Clicks on Create new..............................................passed
 Then user enters the outfit details.........................................passed
 Then user creates a accommodation search....................................passed
 Then user adds the accommodation to the basket..............................passed
+Then user confirms the booking..............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Create Extra Booking" name="Create Extra Booking" time="49.913464">
+<system-out><![CDATA[When user enters the homePage...............................................passed
+Then user Clicks on Create new..............................................passed
+Then user enters the outfit details.........................................passed
+Then user creates a extra search............................................passed
+Then user adds the extra to the basket......................................passed
+Then user confirms the booking..............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Create Ferry Crossing" name="Create Single Ferry Crossing" time="45.740263">
+<system-out><![CDATA[When user enters the homePage...............................................passed
+Then user Clicks on Create new..............................................passed
+Then user enters the outfit details.........................................passed
+Then user creates a ferry search............................................passed
+Then user adds the ferry to the basket......................................passed
+Then user confirms the booking..............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Create Return Ferry Crossing" name="Create Return Ferry Crossing" time="49.381259">
+<system-out><![CDATA[When user enters the homePage...............................................passed
+Then user Clicks on Create new..............................................passed
+Then user enters the outfit details.........................................passed
+Then user creates a return ferry search.....................................passed
+Then user adds the ferry to the basket......................................passed
+Then user confirms the booking..............................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

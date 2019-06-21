@@ -1,7 +1,5 @@
 package com.qa.pages;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,8 +33,8 @@ public class ViewFullBasketPage extends TestBase {
 	@FindBy(xpath = "//input[@id='chkAll']")
 	WebElement acceptComments;
 	
-	/*@FindBy(xpath = "//button[contains(text(),'Add')]")
-	WebElement addAccom;*/
+	@FindBy(xpath = "//input[@name='btnProceed']")
+	WebElement proceed;
 	
 	
 	
@@ -74,16 +72,48 @@ public class ViewFullBasketPage extends TestBase {
 		//Now find checkbox and click 
 		element.click();
 
+		Thread.sleep(3000);
 		//Now close opened popup window 
-		driver.close();
+		proceed.click();
 
 		//Switch back to parent window 
 		driver.switchTo().window(parentWindow);
 
-		
+		Thread.sleep(5000);
 		
 		
 	}
+	
+	public void newExtraBooking() throws InterruptedException {
+			String parentWindow = driver.getWindowHandle();
+			
+			waitElementToBeClickableByLocator(driver, By.xpath("//button[contains(text(),'Add')]")).click();
+			
+
+			Thread.sleep(3000);
+			//Switch to new window opened
+			for(String winHandle : driver.getWindowHandles()){
+			    if(!winHandle.equals(parentWindow)) {
+			        driver.switchTo().window(winHandle);
+			    }
+			}
+			WebDriverWait wait = new WebDriverWait(driver, 10);   
+			WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='toldcustomer1']")));
+
+			//Now find checkbox and click 
+			element.click();
+
+			Thread.sleep(3000);
+			//Now close opened popup window 
+			proceed.click();
+
+			//Switch back to parent window 
+			driver.switchTo().window(parentWindow);
+
+			Thread.sleep(5000);
+	}
+
+
 	public static WebElement waitElementToBeClickableByLocator(
             WebDriver driver, By by) {
         WebDriverWait wait = new WebDriverWait(driver, 30);

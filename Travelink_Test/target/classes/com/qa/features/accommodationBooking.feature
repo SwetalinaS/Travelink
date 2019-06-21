@@ -25,4 +25,6 @@ Feature: Create Accommodation
     Then user enters the outfit details
     Then user creates a accommodation search
     Then user adds the accommodation to the basket
-  
+    Then user confirms the booking
+    
+  	

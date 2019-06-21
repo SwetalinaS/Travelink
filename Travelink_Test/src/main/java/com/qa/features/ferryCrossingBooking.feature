@@ -27,7 +27,7 @@ Feature: Create Ferry Crossing
     Then user creates a ferry search
     Then user adds the ferry to the basket
     Then user confirms the booking
-    Then user exists the browser
+    
     
     
 
