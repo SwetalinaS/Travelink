@@ -1,9 +1,9 @@
 package com.qa.pages;
 
-import java.util.List;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -43,20 +43,42 @@ public class CreateFerryPage extends TestBase{
 	
 	
 	@FindBy(xpath = "//button[contains(text(),'Search for ferries')]")
-	WebElement searchferry;
+	WebElement searchFerry;
+	
+	@FindBy(xpath = "//button[contains(text(),'Add to basket')]")
+	WebElement addToBasket;
 
+	@FindBy(xpath = "//input[@ng-model ='confirmedErrata']")
+	WebElement confirmElement;
+	
+	@FindBy(xpath = "//span[@class='ng-binding ng-scope']")
+	WebElement basket;
+	
+	@FindBy(xpath = "//a[contains(text(),'Proceed')]")
+	WebElement proceedBooking;
+	
+	@FindBy(xpath = "//button[contains(text(),'Proceed')]")
+	WebElement proceed;
+	
+	@FindBy(xpath = "//button[contains(text(),'Book now')]")
+	WebElement BookFerry;
+	
+	
+	@FindBy(xpath = "//a[contains(text(),'View full basket')]")
+	WebElement viewBasket;
 	
 	
 	public void newFerryQuote() throws InterruptedException {
 				
 		ferries.click();
+		Thread.sleep(3000);
 				
 		Select crossingType = new Select(crossing);
 		crossingType.selectByIndex(0);
 	   
 		Thread.sleep(3000);
 		
-		//OutBoundRoute.clear();
+		
 		outBoundRoute.click();
 		outBoundRoute.sendKeys("Calais");
 		
@@ -64,39 +86,83 @@ public class CreateFerryPage extends TestBase{
 		
 		
 		dateFrom.click();
-		/*List<WebElement> allDates=driver.findElements(By.cssSelector(".pika-table"));
-		
-		for(WebElement ele:allDates)
-		{
-			
-			String date=ele.getText();
-			
-			if(date.equalsIgnoreCase("28"))
-			{
-				ele.click();
-				break;
-			}
-			
-		}
-		*/
-		WebDriverWait wait = new WebDriverWait(driver, 3);
-		 wait.until(ExpectedConditions.visibilityOf(driver.findElements(By.cssSelector(".pika-table")).get(0)));
-		 calender.click();
-		 departureDate.click();
-		    //Click departure day
-		//driver.findElements(By.cssSelector("button[data-pika-year='2019'][data-pika-month='6'][data-pika-day='22']")).get(0).click();
-		    
-		//dateFrom.clear();
-		//dateFrom.sendKeys("15-Dec-2019");
-		
-		//searchferry.click();
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		//Wait until departure table visible
+	    wait.until(ExpectedConditions.visibilityOf(driver.findElements(By.cssSelector(".pika-table")).get(0)));
+	 
+	   
+	    //Click departure day
+	    driver.findElements(By.cssSelector
+	            ("button[data-pika-year='2019'][data-pika-month='6'][data-pika-day='22']")).get(0).click();
+	    
+	    searchFerry.click();
+	    Thread.sleep(3000);
+	    
+	    
+	   
+	    
+	    
 	}
 	
+	public void newFerryBooking() {
+		addToBasket.click();
+	    confirmElement.click();
+	    addToBasket.click();
+	    
+	    ValidateBasket();
+	    
+	}
+	
+	public void confirmBooking1() throws InterruptedException {
+		 proceedBooking.click();
+		    Thread.sleep(1000);
+		    //wait.until(ExpectedConditions.visibilityOf(proceed));
+		    proceed.click();
+		    Thread.sleep(1000);
+		    //wait.until(ExpectedConditions.visibilityOf(BookFerry));
+		    BookFerry.click();
+	}
+		
+	public void ValidateBasket() {
+		if(basket.getText().contains("Calais - Dover"))
+	    {
+	    	System.out.println("Ferry Name is appropriate");
+	    }
+	    else
+	    {
+	    	System.out.println("Ferry Name is not appropriate");
+	    }
+		
+		viewBasket.click();
+		
+		
+	}
 	
 	public static void selectElementByValue(WebElement element, String value) {
 	//log.info("Selecting a value");
 	Select selectitem = new Select(element);
 	selectitem.selectByValue(value);
+	}
+
+	public void confirmBooking() {
+		// TODO Auto-generated method stub
+		proceedBooking.click();
+	    try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    //wait.until(ExpectedConditions.visibilityOf(proceed));
+	    proceed.click();
+	    try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    //wait.until(ExpectedConditions.visibilityOf(BookFerry));
+	    BookFerry.click();
 	}
 
 

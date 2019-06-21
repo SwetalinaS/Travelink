@@ -7,8 +7,8 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.qa.util.TestBase;
 
-public class QuotePage extends TestBase {
-	public QuotePage()
+public class OutfitDetailPage extends TestBase {
+	public OutfitDetailPage()
 	{
 		PageFactory.initElements(driver, this);
 	}

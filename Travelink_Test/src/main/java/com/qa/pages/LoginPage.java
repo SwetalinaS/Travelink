@@ -26,12 +26,12 @@ public class LoginPage extends TestBase{
 		PageFactory.initElements(driver, this);
 	}
 	
-	public HomePage login(String uname, String pwd, String db) {
+	public NewQuotePage login(String uname, String pwd, String db) {
 		username.sendKeys(uname);
 		password.sendKeys(pwd);
 		database.sendKeys(db);
 		btnLogin.click();
 		
-		return new HomePage();
+		return new NewQuotePage();
 	}
 }
