@@ -21,10 +21,10 @@ public class NewBookingPage extends TestBase {
 	WebElement proceed;
 	
 	@FindBy(xpath = "//button[contains(text(),'Book now')]")
-	WebElement BookFerry;
+	WebElement bookNow;
 	
 	
-	
+	OutfitDetailPage util = new OutfitDetailPage();
 	
 	
 	
@@ -40,6 +40,6 @@ public class NewBookingPage extends TestBase {
 	    
 			Thread.sleep(3000);
 		
-	    BookFerry.click();
+			bookNow.click();
 	}
 }

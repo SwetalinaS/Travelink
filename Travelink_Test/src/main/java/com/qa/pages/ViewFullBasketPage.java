@@ -17,6 +17,8 @@ public class ViewFullBasketPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 	
+	OutfitDetailPage util = new OutfitDetailPage();
+	
 	@FindBy(xpath = "//button[contains(text(),'Add to basket')]")
 	WebElement addToBasket;
 
@@ -36,7 +38,11 @@ public class ViewFullBasketPage extends TestBase {
 	@FindBy(xpath = "//input[@name='btnProceed']")
 	WebElement proceed;
 	
+	@FindBy(xpath = "//button[contains(text(),'Add')]")
+	WebElement add;
 	
+	@FindBy(xpath = "//input[@name='toldcustomer1']")
+	WebElement comments;
 	
 	public void newFerryBooking() {
 		addToBasket.click();
@@ -50,10 +56,6 @@ public class ViewFullBasketPage extends TestBase {
 	public void newAccomBooking() throws InterruptedException {
 		
 		
-		//waitElementToBeClickableByLocator(driver, By.xpath("//button[contains(text(),'Add')]")).click();
-		
-		
-		//First store parent window to switch back
 		String parentWindow = driver.getWindowHandle();
 
 		waitElementToBeClickableByLocator(driver, By.xpath("//button[contains(text(),'Add')]")).click();
@@ -66,17 +68,18 @@ public class ViewFullBasketPage extends TestBase {
 		        driver.switchTo().window(winHandle);
 		    }
 		}
-		WebDriverWait wait = new WebDriverWait(driver, 10);   
+		/*WebDriverWait wait = new WebDriverWait(driver, 10);   
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='chkAll']")));
-
-		//Now find checkbox and click 
-		element.click();
+*/
+		util.waitForVisibility(acceptComments);
+		
+		acceptComments.click();
 
 		Thread.sleep(3000);
-		//Now close opened popup window 
+		
 		proceed.click();
 
-		//Switch back to parent window 
+		
 		driver.switchTo().window(parentWindow);
 
 		Thread.sleep(5000);
@@ -97,11 +100,13 @@ public class ViewFullBasketPage extends TestBase {
 			        driver.switchTo().window(winHandle);
 			    }
 			}
-			WebDriverWait wait = new WebDriverWait(driver, 10);   
+		/*WebDriverWait wait = new WebDriverWait(driver, 10);   
 			WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='toldcustomer1']")));
-
+*/
 			//Now find checkbox and click 
-			element.click();
+			
+			util.waitForVisibility(comments);
+			comments.click();
 
 			Thread.sleep(3000);
 			//Now close opened popup window 
@@ -120,6 +125,8 @@ public class ViewFullBasketPage extends TestBase {
 
         return wait.until(ExpectedConditions.elementToBeClickable(by));
     }
+	
+	
 
 	public void ValidateBasket() {
 		if(basket.getText().contains("Calais - Dover"))

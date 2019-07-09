@@ -36,10 +36,11 @@ public class AccommodationSearchPage extends TestBase{
 	@FindBy(xpath = "//button[contains(text(),'Search accommodations')]")
 	WebElement searchAccom;
 	
+	OutfitDetailPage util = new OutfitDetailPage();
 	public void newAccomQuote() throws InterruptedException {
 		accom.click();
-		Thread.sleep(3000);
-		
+		//Thread.sleep(3000);
+		util.waitForVisibility(destination);
 		destination.click();
 		destination.sendKeys("Le Domaine de la");
 		accomDest.click();

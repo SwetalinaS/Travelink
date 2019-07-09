@@ -21,6 +21,11 @@ public class LoginPage extends TestBase{
 	@FindBy(id="btnLogin")
 	WebElement btnLogin;
 	
+	@FindBy(xpath = "//a[contains(text(),'Logout')]")
+	WebElement logoutBtn;
+	
+	OutfitDetailPage util = new OutfitDetailPage();
+	
 	public LoginPage()
 	{
 		PageFactory.initElements(driver, this);
@@ -33,5 +38,11 @@ public class LoginPage extends TestBase{
 		btnLogin.click();
 		
 		return new NewQuotePage();
+	}
+	
+	public void logout()
+	{
+		util.waitForVisibility(logoutBtn);
+		logoutBtn.click();
 	}
 }

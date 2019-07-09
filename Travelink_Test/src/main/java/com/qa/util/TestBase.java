@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class TestBase {
 	public static Properties prop;
@@ -31,8 +32,14 @@ public class TestBase {
 		
 		if(browserName.equals("chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver",prop.getProperty("driverPath"));
+			System.setProperty("webdriver.chrome.driver",prop.getProperty("driverPath")+"chromedriver_win32/chromedriver.exe");
 			 driver = new ChromeDriver();
+			
+		}
+		else if (browserName.equals("ie"))
+		{
+			System.setProperty("webdriver.ie.driver", prop.getProperty("driverPath")+"IEDriverServer_x64_3.14.0/IEDriverServer.exe");
+			driver = new InternetExplorerDriver();
 			
 		}
 		

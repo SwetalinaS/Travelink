@@ -7,8 +7,8 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-features = {"src/main/java/com/qa/features"}
-//features = {"src/main/java/com/qa/features/extraBooking.feature"}
+//features = {"src/main/java/com/qa/features"}
+features = {"src/main/java/com/qa/features/amendAccommodation.feature"}
 ,glue= {"com/qa/stepDefinations"}
 ,plugin = {"pretty", "json:./target/cucumber-reports/Cucumber.json","junit:./target/cucumber-reports/Cucumber.xml",
 		 "html:./target/cucumber-reports"}
