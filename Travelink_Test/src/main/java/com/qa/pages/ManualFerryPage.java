@@ -35,14 +35,14 @@ public class ManualFerryPage extends TestBase {
 	@FindBy(xpath = "//select[@ng-model ='vm.manualFerry.fareType']")
 	WebElement fareType;
 	
-	@FindBy(xpath = "//input[@ng-model ='vm.manualFerry.totalCost.amount']")
+	@FindBy(xpath = "//input[@ng-model ='vm.manualFerry.displayCost']")
 	WebElement totalCost;
 	
 	@FindBy(xpath = "//a[@class='btn secondary marks-up']")
 	WebElement markup;
 	
 	
-	@FindBy(xpath = "//button[contains(text(),'Create')]")
+	@FindBy(xpath = "//button[contains(text(),'Add to Basket')]")
 	WebElement createFerry;
 	
 	@FindBy(xpath = "//input[@id='date-outbound-from']")
@@ -65,12 +65,12 @@ public class ManualFerryPage extends TestBase {
 		arrivalPort.sendKeys("Dov");
 		
 		outBoundTimeFrom.click();
-		outBoundTimeFrom.sendKeys("7/24/19");
+		outBoundTimeFrom.sendKeys("10/28/19");
 		
 		Thread.sleep(2000);
 		
 		outBoundTimeTo.click();
-		outBoundTimeTo.sendKeys("7/25/19");
+		outBoundTimeTo.sendKeys("10/29/19");
 		Thread.sleep(2000);
 		
 		

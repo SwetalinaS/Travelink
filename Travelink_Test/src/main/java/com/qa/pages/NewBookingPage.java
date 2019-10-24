@@ -23,6 +23,9 @@ public class NewBookingPage extends TestBase {
 	@FindBy(xpath = "//button[contains(text(),'Book now')]")
 	WebElement bookNow;
 	
+	@FindBy(xpath = "//a[contains(text(),'History')]")
+	WebElement history;
+	
 	
 	OutfitDetailPage util = new OutfitDetailPage();
 	
@@ -32,6 +35,7 @@ public class NewBookingPage extends TestBase {
 	
 	public void confirmBooking() throws InterruptedException {
 		// TODO Auto-generated method stub
+		
 		proceedBooking.click();
 	   
 			Thread.sleep(3000);
@@ -41,5 +45,8 @@ public class NewBookingPage extends TestBase {
 			Thread.sleep(3000);
 		
 			bookNow.click();
+			util.waitForVisibility(history);
+			Thread.sleep(3000);
+			history.click();
 	}
 }

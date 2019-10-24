@@ -16,9 +16,9 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-Feature: Cancel Accommodation
+Feature: Amend Accommodation
  
-  Scenario: Cancel Accommodation Booking
+  Scenario: Amend Accommodation Booking
    
    	When user enters the homePage
     Then user Clicks on Create new

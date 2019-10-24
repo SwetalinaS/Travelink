@@ -9,10 +9,10 @@ import com.qa.util.TestBase;
 
 public class LoginPage extends TestBase{
 
-	@FindBy(name="txtUserName")
+	@FindBy(id="txtUserName")
 	WebElement username;
 	
-	@FindBy(name="txtPassword")
+	@FindBy(id="txtPassword")
 	WebElement password;
 
 	@FindBy(name="ddlDatabase")

@@ -33,7 +33,7 @@ public class FerrySearchPage extends TestBase{
 	WebElement fareType;
 	
 	
-	@FindBy(xpath = "//span[contains(text(),'Calais - Dover (P and O Ferries)')]")
+	@FindBy(xpath = "//span[contains(text(),'Caen - Portsmouth (Brittany)')]")
 	WebElement route;
 	
 	@FindBy(xpath = "//input[@id='date-from']")
@@ -62,7 +62,7 @@ public class FerrySearchPage extends TestBase{
 		
 		
 		outBoundRoute.click();
-		outBoundRoute.sendKeys("Calais");
+		outBoundRoute.sendKeys("Caen");
 		
 		route.click();
 		
@@ -75,12 +75,12 @@ public class FerrySearchPage extends TestBase{
 	   
 	    //Click departure day
 	    driver.findElements(By.cssSelector
-	            ("button[data-pika-year='2019'][data-pika-month='6'][data-pika-day='22']")).get(0).click();
+	            ("button[data-pika-year='2019'][data-pika-month='10'][data-pika-day='29']")).get(0).click();
 	    
 	  
 	    
 	    searchFerry.click();
-	    Thread.sleep(3000);
+	    Thread.sleep(6000);
 	    
 	    
 	   
@@ -110,7 +110,7 @@ public class FerrySearchPage extends TestBase{
 		
 		
 		outBoundRoute.click();
-		outBoundRoute.sendKeys("Calais");
+		outBoundRoute.sendKeys("Caen");
 		
 		route.click();
 		
@@ -123,7 +123,7 @@ public class FerrySearchPage extends TestBase{
 	   
 	    //Click departure day
 	    driver.findElements(By.cssSelector
-	            ("button[data-pika-year='2019'][data-pika-month='6'][data-pika-day='22']")).get(0).click();
+	            ("button[data-pika-year='2019'][data-pika-month='11'][data-pika-day='22']")).get(0).click();
 	    
 	    
 	    dateTo.click();

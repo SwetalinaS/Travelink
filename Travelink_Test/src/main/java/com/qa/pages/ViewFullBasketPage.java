@@ -19,7 +19,7 @@ public class ViewFullBasketPage extends TestBase {
 	
 	OutfitDetailPage util = new OutfitDetailPage();
 	
-	@FindBy(xpath = "//button[contains(text(),'Add to basket')]")
+	@FindBy(xpath = "//button[contains(text(),'Add')]")
 	WebElement addToBasket;
 
 	@FindBy(xpath = "//input[@ng-model ='confirmedErrata']")
@@ -75,7 +75,7 @@ public class ViewFullBasketPage extends TestBase {
 		
 		acceptComments.click();
 
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 		
 		proceed.click();
 

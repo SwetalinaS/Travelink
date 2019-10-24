@@ -22,14 +22,17 @@ public class ExtraSearchPage extends TestBase{
 	@FindBy(xpath = "//button[contains(text(),'Search extras')]")
 	WebElement searchExtra;
 	
+	@FindBy(xpath = "//span[contains(text(),'Overseas Site Night Voucher')]")
+	WebElement extra;
+	
 	OutfitDetailPage util = new OutfitDetailPage();
 	
 	public void newExtraQuote() throws InterruptedException {
 		util.waitForVisibility(extras);
-		//Thread.sleep(1000);
+		Thread.sleep(3000);
 		extras.click();
-		extradesc.sendKeys("Dog");
-		
+		extradesc.sendKeys("Site Night Voucher");
+		extra.click();
 		searchExtra.click();
 	}
 }

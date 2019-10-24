@@ -15,7 +15,7 @@ public class NewQuotePage extends TestBase{
 	@FindBy(linkText="Create new quote")
 	WebElement createNewQuote;
 	
-	@FindBy(xpath = "//a[contains(text(),'Overseas Members')]")
+	@FindBy(xpath = "//a[contains(text(),'CAMC Member Product')]")
 	public WebElement members;
 		
 	@FindBy(xpath = "//input[@id='save']")

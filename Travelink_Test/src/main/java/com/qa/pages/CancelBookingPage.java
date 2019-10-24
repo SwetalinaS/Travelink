@@ -38,7 +38,7 @@ public class CancelBookingPage extends TestBase{
 	}
 	public void confirmCancellation() throws InterruptedException {
 		util.waitForVisibility(pwd);
-		pwd.sendKeys("OMEGA");
+		pwd.sendKeys("OMEGA!");
 		
 		Thread.sleep(3000);
 		util.waitForVisibility(comment);
@@ -46,5 +46,6 @@ public class CancelBookingPage extends TestBase{
 		
 		util.waitForVisibility(cancel);
 		cancel.click();
+		Thread.sleep(3000);
 	}
 }
