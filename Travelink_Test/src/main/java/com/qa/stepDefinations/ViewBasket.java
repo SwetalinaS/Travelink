@@ -34,5 +34,11 @@ public class ViewBasket extends TestBase {
 		viewBasket = new ViewFullBasketPage(); 
 		viewBasket.newExtraBooking();
 	}
+	
+	@Then("^user clicks on AddComponent$")
+	public void user_clicks_on_AddComponent() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    viewBasket.addComponent();
+	}
 
 }

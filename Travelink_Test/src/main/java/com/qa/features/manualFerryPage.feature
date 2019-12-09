@@ -18,11 +18,18 @@
 #Sample Feature Definition Template
 Feature: Create Manual Ferry Crossing
  
-  Scenario: Create Manual Ferry Crossing
+  Scenario Outline: Create Manual Ferry Crossing
    
     When user enters the homePage
     Then user Clicks on Create new
+    Then enter the number of <adults> and number of <children>
     Then user enters the outfit details
+    Then user saves the outfit details
     Then user creates a manual ferry
     Then user adds the manual ferry basket
     Then user confirms the booking
+  
+ Examples:
+    |adults|children|
+		|1|0|
+		|2|1|

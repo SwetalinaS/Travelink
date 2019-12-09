@@ -1,9 +1,11 @@
 package com.qa.pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.qa.util.TestBase;
+
 
 public class AccommodationSearchPage extends TestBase{
 
@@ -54,16 +56,16 @@ public class AccommodationSearchPage extends TestBase{
 	            ("button[data-pika-year='2019'][data-pika-month='11'][data-pika-day='28']")).get(0).click();
 	    
 	    */
-		
+		dateFrom.sendKeys(Keys.SHIFT, Keys.END, Keys.BACK_SPACE);
 		dateFrom.clear();
-		//dateFrom.sendKeys("10/27/19");
+		dateFrom.sendKeys("11/22/19");
 	
 		
 		dateTo.click();
 		Thread.sleep(3000);
-	
+		dateTo.sendKeys(Keys.SHIFT, Keys.END, Keys.BACK_SPACE);
 		dateTo.clear();
-		//dateTo.sendKeys("10/29/19");
+		dateTo.sendKeys("11/23/19");
 	
 		searchAccom.click();
 	}

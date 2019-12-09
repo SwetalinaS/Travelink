@@ -18,5 +18,9 @@ public class NewQuote extends TestBase{
 		quotePage= homePage.newQuote();
 	}
 
+	@Then("^enter the number of (\\d+) and number of (\\d+)$")
+	public void enter_the_number_of_and_number_of(int adult, int child) throws Throwable {
+		homePage.continueQuote(adult,child);
+	}
 		
 }

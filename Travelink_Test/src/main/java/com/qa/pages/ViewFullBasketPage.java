@@ -44,6 +44,9 @@ public class ViewFullBasketPage extends TestBase {
 	@FindBy(xpath = "//input[@name='toldcustomer1']")
 	WebElement comments;
 	
+	@FindBy(xpath = "//h4[contains(text(),'Add components')]")
+	WebElement addcomponent;
+	
 	public void newFerryBooking() {
 		addToBasket.click();
 	    confirmElement.click();
@@ -53,6 +56,9 @@ public class ViewFullBasketPage extends TestBase {
 	    
 	}
 	
+	public void addComponent() {
+		addcomponent.click();
+	}
 	public void newAccomBooking() throws InterruptedException {
 		
 		

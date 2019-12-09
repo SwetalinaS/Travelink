@@ -23,6 +23,7 @@ Feature: Create Extra Booking
     When user enters the homePage
     Then user Clicks on Create new
     Then user enters the outfit details
+    Then user saves the outfit details
     Then user creates a extra search
     Then user adds the extra to the basket
     Then user confirms the booking

@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="59.516551">
-<testcase classname="Create Ferry Crossing" name="Create Single Ferry Crossing" time="59.516551">
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="2" time="141.574263">
+<testcase classname="Create Manual Ferry Crossing" name="Create Manual Ferry Crossing" time="72.543062">
 <system-out><![CDATA[When user enters the homePage...............................................passed
 Then user Clicks on Create new..............................................passed
+Then enter the number of 1 and number of 0..................................passed
 Then user enters the outfit details.........................................passed
-Then user creates a ferry search............................................passed
-Then user adds the ferry to the basket......................................passed
+Then user saves the outfit details..........................................passed
+Then user creates a manual ferry............................................passed
+Then user adds the manual ferry basket......................................passed
+Then user confirms the booking..............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Create Manual Ferry Crossing" name="Create Manual Ferry Crossing 2" time="69.031201">
+<system-out><![CDATA[When user enters the homePage...............................................passed
+Then user Clicks on Create new..............................................passed
+Then enter the number of 2 and number of 1..................................passed
+Then user enters the outfit details.........................................passed
+Then user saves the outfit details..........................................passed
+Then user creates a manual ferry............................................passed
+Then user adds the manual ferry basket......................................passed
 Then user confirms the booking..............................................passed
 ]]></system-out>
 </testcase>

@@ -23,6 +23,7 @@ Feature: Create Accommodation
    	When user enters the homePage
     Then user Clicks on Create new
     Then user enters the outfit details
+    Then user saves the outfit details
     Then user creates a accommodation search
     Then user adds the accommodation to the basket
     Then user confirms the booking

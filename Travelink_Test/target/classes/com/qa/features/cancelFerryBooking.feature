@@ -23,6 +23,7 @@ Feature: Cancel Ferry Crossing
     When user enters the homePage
     Then user Clicks on Create new
     Then user enters the outfit details
+    Then user saves the outfit details
     Then user creates a ferry search
     Then user adds the ferry to the basket
     Then user confirms the booking

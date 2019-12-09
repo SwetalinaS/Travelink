@@ -18,11 +18,17 @@
 #Sample Feature Definition Template
 Feature: Create Return Ferry Crossing
  
-  Scenario: Create Return Ferry Crossing
+  Scenario Outline: Create Return Ferry Crossing
    
    	When user enters the homePage
     Then user Clicks on Create new
+    Then enter the number of <adults>
     Then user enters the outfit details
+    Then user saves the outfit details
     Then user creates a return ferry search
     Then user adds the ferry to the basket
     Then user confirms the booking
+
+    |adults|children|
+		|1|0|
+		|2|0|

@@ -35,18 +35,21 @@ public class NewBookingPage extends TestBase {
 	
 	public void confirmBooking() throws InterruptedException {
 		// TODO Auto-generated method stub
-		
+		Thread.sleep(5000);
 		proceedBooking.click();
 	   
-			Thread.sleep(3000);
-		
+		Thread.sleep(3000);
 	    proceed.click();
 	    
-			Thread.sleep(3000);
+		Thread.sleep(5000);
+		bookNow.click();
 		
-			bookNow.click();
-			util.waitForVisibility(history);
-			Thread.sleep(3000);
-			history.click();
+		
+		
+		util.waitForVisibility(history);
+		Thread.sleep(3000);
+		history.click();
 	}
+	
+	
 }

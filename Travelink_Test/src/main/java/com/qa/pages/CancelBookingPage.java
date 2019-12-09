@@ -26,14 +26,13 @@ public class CancelBookingPage extends TestBase{
 	@FindBy(xpath = "//button[@class='btn negative cancel full close ng-scope ng-isolate-scope']")
 	WebElement cancel;
 	
+
 	
 	OutfitDetailPage util = new OutfitDetailPage();
 	public void CancelBooking() {
 		
 		util.waitForVisibility(cancelBooking);
 		cancelBooking.click();
-		
-		
 		
 	}
 	public void confirmCancellation() throws InterruptedException {
@@ -47,5 +46,7 @@ public class CancelBookingPage extends TestBase{
 		util.waitForVisibility(cancel);
 		cancel.click();
 		Thread.sleep(3000);
+		
+		
 	}
 }

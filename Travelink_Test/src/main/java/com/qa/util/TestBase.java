@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class TestBase {
 	public static Properties prop;
@@ -38,8 +39,12 @@ public class TestBase {
 		}
 		else if (browserName.equals("ie"))
 		{
-			System.setProperty("webdriver.ie.driver", prop.getProperty("driverPath")+"IEDriverServer_x64_3.14.0/IEDriverServer.exe");
-			driver = new InternetExplorerDriver();
+			DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
+
+			caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
+			caps.setCapability(InternetExplorerDriver.REQUIRE_WINDOW_FOCUS, true);
+			System.setProperty("webdriver.ie.driver", prop.getProperty("driverPath")+"IEDriverServer_Win32_3.150.1/IEDriverServer.exe");
+			driver = new InternetExplorerDriver(caps);
 			
 		}
 		

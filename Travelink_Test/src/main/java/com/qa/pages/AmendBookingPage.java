@@ -18,30 +18,55 @@ public class AmendBookingPage extends TestBase {
 	@FindBy(linkText = "Extras")
 	WebElement extras;
 	
+	@FindBy(linkText = "Accom")
+	WebElement accom;
+	
+	@FindBy(xpath = "//input[@ng-model ='vm.search.description']")
+	WebElement extradesc;
+	
+	@FindBy(xpath = "//button[contains(text(),'Search extras')]")
+	WebElement searchExtra;
+	
+	@FindBy(xpath = "//span[contains(text(),'Overseas Site Night Voucher')]")
+	WebElement extra;
+	
+	@FindBy(xpath = "//a[contains(text(),'Proceed')]")
+	WebElement proceed;
+	
+	@FindBy(xpath = "//button[contains(text(),'Proceed')]")
+	WebElement proceedbtn;
+	
 	OutfitDetailPage util = new OutfitDetailPage();
 	//String parentWindow;
 	
 	public void amend() throws InterruptedException
 	{
-		//parentWindow = driver.getWindowHandle();
+		String parentWindow = driver.getWindowHandle();
 		util.waitForVisibility(amendBtn);
 		amendBtn.click();
 		
+
+		Thread.sleep(3000);
+		//Switch to new window opened
+		for(String winHandle : driver.getWindowHandles()){
+		    if(!winHandle.equals(parentWindow)) {
+		        driver.switchTo().window(winHandle);
+		    }
+		}
+		
+		util.waitForVisibility(extras);
+		
+		extras.click();
+
+		Thread.sleep(6000);
+		
+		extradesc.sendKeys("Site Night Voucher");
+		
+		extra.click();
+		searchExtra.click();
 		
 	}
 	
-	public void clickExtras() throws InterruptedException
-	{
-		
-		
-		//driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL +"\t");
-		
-		String  myWindowHandle =driver.getWindowHandle();
-		driver.switchTo().window(myWindowHandle);
-		util.waitForVisibility(extras);
-		extras.click();
-		Thread.sleep(1000);
-		
-	}
+
 
 }

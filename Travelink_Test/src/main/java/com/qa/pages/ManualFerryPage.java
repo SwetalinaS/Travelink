@@ -16,10 +16,12 @@ public class ManualFerryPage extends TestBase {
 	@FindBy(xpath = "//a[@class='nav-sub-link icon icon-port']")
 	public WebElement ferries;
 	
-	@FindBy(xpath = "//a[@class='btn tertiary']")
+	@FindBy(xpath = "//a[contains(text(),'Manual Ferry')]")
 	public WebElement manualferry;
 	
-	
+	@FindBy(xpath = "//select[@ng-model ='vm.typeOfCrossing']")
+	WebElement crossing;
+		
 	@FindBy(xpath = "//input[@ng-model ='vm.manualFerry.outBoundItinerary.departurePortCode']")
 	WebElement departurePort;
 	
@@ -38,7 +40,7 @@ public class ManualFerryPage extends TestBase {
 	@FindBy(xpath = "//input[@ng-model ='vm.manualFerry.displayCost']")
 	WebElement totalCost;
 	
-	@FindBy(xpath = "//a[@class='btn secondary marks-up']")
+	@FindBy(xpath = "//button[@class='btn secondary marks-up']")
 	WebElement markup;
 	
 	
@@ -51,12 +53,38 @@ public class ManualFerryPage extends TestBase {
 	@FindBy(xpath = "//input[@id='date-outbound-to']")
 	WebElement outBoundTimeTo ;
 	
+	@FindBy(xpath = "//input[@id='date-inbound-from']")
+	WebElement inBoundTimeFrom;
+	
+	@FindBy(xpath = "//input[@id='date-inbound-to']")
+	WebElement inBoundTimeTo ;
+	
+	@FindBy(xpath = "//button[@ng-click ='vm.addManualFacility(0, true, true)']")
+	WebElement accom;
+	
+	@FindBy(xpath = "//input[@ng-model ='accommodation.description']")
+	WebElement accomdesc;
+	
+	@FindBy(xpath = "//input[@ng-model ='accommodation.quantity']")
+	WebElement accomquantity;
+	
+	@FindBy(xpath = "//input[@ng-model ='accommodation.displayCost']")
+	WebElement accomcost;
+	
+	@FindBy(xpath = "//button[contains(text(),'Remove')]")
+	WebElement remove;
+	
+	@FindBy(xpath = "//a[contains(text(),'Cancellation Charge')]")
+	WebElement cancellationcharge;
 	
 	public void newManualFerry() throws InterruptedException
 	{
 		ferries.click();
 		Thread.sleep(3000);
 		manualferry.click();
+		
+		Select crossingType = new Select(crossing);
+		crossingType.selectByIndex(0);
 		
 		departurePort.click();
 		departurePort.sendKeys("Cal");
@@ -65,15 +93,19 @@ public class ManualFerryPage extends TestBase {
 		arrivalPort.sendKeys("Dov");
 		
 		outBoundTimeFrom.click();
-		outBoundTimeFrom.sendKeys("10/28/19");
+		outBoundTimeFrom.sendKeys("11/28/19");
 		
 		Thread.sleep(2000);
 		
 		outBoundTimeTo.click();
-		outBoundTimeTo.sendKeys("10/29/19");
+		outBoundTimeTo.sendKeys("11/29/19");
 		Thread.sleep(2000);
 		
-		
+	}
+	
+	public void addToBasket() throws InterruptedException
+	{
+
 		supplier.click();
 		supplier.sendKeys("P & O Irish");
 		
@@ -98,7 +130,62 @@ public class ManualFerryPage extends TestBase {
 		createFerry.click();
 		
 		Thread.sleep(2000);
+			
+	}
+	
+	public void removeFerry()  throws InterruptedException
+	{
+		remove.click();
+		Thread.sleep(1000);
+		if(cancellationcharge.isDisplayed())
+		{
+			System.out.print("cancellation charge is been applied");
+		}
 		
 	}
-
+	public void newReturnManualFerry() throws InterruptedException
+	{
+		ferries.click();
+		Thread.sleep(3000);
+		manualferry.click();
+		
+		Select crossingType = new Select(crossing);
+		crossingType.selectByIndex(1);
+		
+		departurePort.click();
+		departurePort.sendKeys("Cal");
+		
+		arrivalPort.click();
+		arrivalPort.sendKeys("Dov");
+		
+		outBoundTimeFrom.click();
+		outBoundTimeFrom.sendKeys("11/5/19");
+		
+		Thread.sleep(2000);
+		
+		outBoundTimeTo.click();
+		outBoundTimeTo.sendKeys("11/7/19");
+		Thread.sleep(2000);
+		
+		accom.click();
+		Thread.sleep(2000);
+		accomdesc.sendKeys("Club Seat");
+		accomquantity.sendKeys("1");
+		accomcost.sendKeys("10");
+		
+		
+		inBoundTimeFrom.click();
+		inBoundTimeFrom.sendKeys("11/12/19");
+		
+		Thread.sleep(2000);
+		
+		
+		inBoundTimeTo.click();
+		inBoundTimeTo.sendKeys("11/13/19");
+		
+		Thread.sleep(2000);
+		
+	
+		
+	}
 }

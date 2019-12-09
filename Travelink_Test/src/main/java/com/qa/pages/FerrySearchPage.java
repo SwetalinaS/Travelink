@@ -1,8 +1,12 @@
 package com.qa.pages;
 
 
-import org.openqa.selenium.By;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -33,7 +37,7 @@ public class FerrySearchPage extends TestBase{
 	WebElement fareType;
 	
 	
-	@FindBy(xpath = "//span[contains(text(),'Caen - Portsmouth (Brittany)')]")
+	@FindBy(xpath = "//span[contains(text(),'Calais - Dover (P&O)')]")
 	WebElement route;
 	
 	@FindBy(xpath = "//input[@id='date-from']")
@@ -62,7 +66,7 @@ public class FerrySearchPage extends TestBase{
 		
 		
 		outBoundRoute.click();
-		outBoundRoute.sendKeys("Caen");
+		outBoundRoute.sendKeys("Calais");
 		
 		route.click();
 		
@@ -75,7 +79,7 @@ public class FerrySearchPage extends TestBase{
 	   
 	    //Click departure day
 	    driver.findElements(By.cssSelector
-	            ("button[data-pika-year='2019'][data-pika-month='10'][data-pika-day='29']")).get(0).click();
+	            ("button[data-pika-year='2019'][data-pika-month='11'][data-pika-day='29']")).get(0).click();
 	    
 	  
 	    
@@ -110,24 +114,36 @@ public class FerrySearchPage extends TestBase{
 		
 		
 		outBoundRoute.click();
-		outBoundRoute.sendKeys("Caen");
+		outBoundRoute.sendKeys("Calais");
 		
 		route.click();
 		
 		
 		dateFrom.click();
+		Thread.sleep(3000);
 		WebDriverWait wait = new WebDriverWait(driver, 30);
+		//dateFrom.sendKeys(Keys.SHIFT, Keys.END, Keys.BACK_SPACE);
+		//dateFrom.sendKeys("11/24/19");
 		//Wait until departure table visible
-	    wait.until(ExpectedConditions.visibilityOf(driver.findElements(By.cssSelector(".pika-table")).get(0)));
+	  wait.until(ExpectedConditions.visibilityOf(driver.findElements(By.cssSelector(".pika-table")).get(0)));
 	 
 	   
 	    //Click departure day
 	    driver.findElements(By.cssSelector
 	            ("button[data-pika-year='2019'][data-pika-month='11'][data-pika-day='22']")).get(0).click();
-	    
-	    
+	   
+		Thread.sleep(3000);
+		Date dt = new Date();
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.DATE, 22);
+		dt = calendar.getTime();
+		 
+		 
+		String tommorowsDate = new SimpleDateFormat("MM/dd/yy").format(dt);
+		
 	    dateTo.click();
-	    dateTo.sendKeys("7/24/19");
+	    dateTo.sendKeys(Keys.SHIFT, Keys.END, Keys.BACK_SPACE);
+	    dateTo.sendKeys(tommorowsDate);
 	     
 	    
 	    Thread.sleep(3000);
